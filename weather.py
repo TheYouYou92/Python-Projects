@@ -8,7 +8,7 @@ city = input("Enter a city name: ")
 
 request_url = f"{BASE_URL}?q={city}&appid={API_KEY}"
 
-response = requests.get(request_url)
+response = requests.get(request_url, timeout=60)
 if response.status_code == 200:
     data = response.json()
     weather = data['weather'][0]['description']
