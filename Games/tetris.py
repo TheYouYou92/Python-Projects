@@ -1,5 +1,5 @@
 import pygame
-import random
+import secrets
 
 """
 10 x 20 square grid
@@ -179,7 +179,7 @@ def check_lost(positions):
     return False
 
 def get_shape():
-    return Piece(5, 0, random.choice(shapes))
+    return Piece(5, 0, secrets.choice(shapes))
 
 def draw_text_middle(surface ,text, size, color):  
     font = pygame.font.SysFont('comicsans', size, bold=True)
