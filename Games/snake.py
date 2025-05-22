@@ -1,8 +1,8 @@
 import math
-import random
 import pygame
 import tkinter as tk
 from tkinter import messagebox
+import secrets
 
 class cube(object):
     rows = 20
@@ -139,8 +139,8 @@ def randomSnack(r, item):
     positions =  item.body
 
     while True:
-        x = random.randrange(r)
-        y = random.randrange(r)
+        x = secrets.SystemRandom().randrange(r)
+        y = secrets.SystemRandom().randrange(r)
         if len(list(filter(lambda x:x.pos == (x,y), positions))) >0:
             continue
         else:

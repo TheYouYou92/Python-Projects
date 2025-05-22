@@ -1,6 +1,6 @@
 import pygame
-import random
 import math
+import secrets
 
 pygame.init()
 
@@ -105,8 +105,8 @@ def get_random_pos(tiles):
     row = None
     col = None
     while True:
-        row = random.randrange(0, ROWS)
-        col = random.randrange(0,COLS)
+        row = secrets.SystemRandom().randrange(0, ROWS)
+        col = secrets.SystemRandom().randrange(0,COLS)
 
         if f"{row}{col}" not in tiles:
             break
@@ -188,7 +188,7 @@ def end_move(tiles):
         return "lost"
     
     row, col = get_random_pos(tiles)
-    tiles[f"{row}{col}"] = Tile(random.choice([2,4]),row,col)
+    tiles[f"{row}{col}"] = Tile(secrets.choice([2,4]),row,col)
     return "continue"
 
 
