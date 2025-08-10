@@ -9,7 +9,7 @@ printer = PrettyPrinter()
 def get_currencies():
     endpoint = f""
     url = BASE_URL + endpoint
-    response = get(url).json()["results"]
+    response = get(url, timeout=60).json()["results"]
     data = list(response.items())
     data.sort()
     return data
@@ -23,7 +23,7 @@ def print_currecies(currencies):
 def exchange_rate(currency1, currency2):
     endpoint = f""
     url = BASE_URL + endpoint
-    data = get(url).json()
+    data = get(url, timeout=60).json()
     if len(data) == 0:
         print('Invalid currencies')
         return
